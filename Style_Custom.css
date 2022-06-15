@@ -698,6 +698,39 @@ input:checked + .slider:before {
   font-size:22px;
 }
 
+.starRed {
+  color: Red;
+}
+
+/*********************************/
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation .8s infinite;
+   -moz-animation: flickerAnimation .8s infinite;
+   -o-animation: flickerAnimation .8s infinite;
+    animation: flickerAnimation .8s infinite;
+}
+
 /******************************************/
 .dot {
   background-color: #5BC0DE;
@@ -714,6 +747,10 @@ input:checked + .slider:before {
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
+
+/********************************************/
+
+
 
 /********************************************/
 

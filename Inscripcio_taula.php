@@ -131,7 +131,7 @@ if (!empty($Casteller_id_taula))
 			
 			$script .= "EventNou(".$row2["EVENT_ID"].",".$stat.",".$row2["CASTELLER_ID"].",".$apuntats.",".$max_participants.",".$max_acompanyants.");";
 			echo "<tr>			
-			<td width='85%'>".$tInici.$comment.$eventNom."<br>".$row2["DATA"]."<br><p style='font-size:14px'>".$row2["OBSERVACIONS"]."</p><br>".$acompanyants.$tFinal."</td>";
+			<td width='85%'>".$tInici.$comment.$eventNom."<br>".$row2["DATA"]."<br><p style='font-size:14px'>".$row2["OBSERVACIONS"]."</p>".$acompanyants.$tFinal."</td>";
 			if ($visualitzarPenya)
 			{
 				echo "<td><b name='E".$row2["EVENT_ID"]."'>".$apuntats."</b></td>";

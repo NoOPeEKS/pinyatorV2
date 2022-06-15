@@ -53,14 +53,15 @@ background-attachment: fixed;  background-position: center; opacity:0.4'>
 
 <?php
 	$topLlista = 60;
+	$visualitzaFitaAssistenica=false;
 
 	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
 	
 	$visualitzarFites = 0;
 	$visualitzarPenya = 0;
 				
-	$sql="SELECT FITES, PARTICIPANTS, PERCENATGEASSISTENCIA
-	FROM CONFIGURACIO";
+	$sql="SELECT FITES, PARTICIPANTS, PERCENATGEASSISTENCIA, HASHTAG
+	FROM CONFIGURACIO, FITA_ASSISTENCIA";
 
 	$result = mysqli_query($conn, $sql);
 
@@ -70,13 +71,16 @@ background-attachment: fixed;  background-position: center; opacity:0.4'>
 		{
 			$visualitzarFites = $row["FITES"];
 			$visualitzarPenya = $row["PARTICIPANTS"];
-			$visualitzarPercentAssistecia = $row["PERCENATGEASSISTENCIA"];			
+			$visualitzarPercentAssistecia = $row["PERCENATGEASSISTENCIA"];
+			$visualitzaFitaAssistenica = $row["HASHTAG"] <> "";
 		}
-	}
+	}	
 ?>
 
 <div style='position:absolute;'><a href="Apuntat.php?reset=1" class="boto" >No sóc jo</a>
 <?php
+
+
 /***+++++++++++ DOCUMENTACIÓ +++++++++++***/
 	$topLlista = 100;
 	echo "<div class='dot' style='position:absolute; left:0px; top:38px; width:52; height:52; box-shadow: 0px 3px #888888;'>
@@ -91,6 +95,20 @@ background-attachment: fixed;  background-position: center; opacity:0.4'>
 				<img src='icons/trofeo.png' width=48 height=48>
 			</a></div>";
 	}
+	if($visualitzaFitaAssistenica)
+	{
+		/***+++++++++++ FITES ASSISTENCIA +++++++++++***/
+		echo "<div style='position: absolute; left: 120px; top: 40px;'><a href='Fita_Assistencia.php'>
+				<img src='icons/Logo_Colla.gif' width=48 height=48>
+			</a><div class='animate-flicker' id='starA' style='position:absolute; left:30px;top: 2px;'><span class='fa fa-star starRed' style='font-size:20px'></span></div></div>";
+	}
+	
+
+	/***+++++++++++ CALENDARI +++++++++++***/
+	echo "<div style='position: absolute; left: 120px; top: -10px;'><a href='Calendari.php'>
+			<img src='icons/Calendari.gif' width=48 height=48>
+		</a><div class='animate-flicker' id='starA' style='position:absolute; left:30px;top: 2px;'><span class='fa fa-star starRed' style='font-size:20px'></span></div></div>";
+
 ?>
 </div>
 <div style="position:absolute; right:0px; top:4px;">
