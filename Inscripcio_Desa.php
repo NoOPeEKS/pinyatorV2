@@ -3,6 +3,7 @@ $event_id = intval($_GET["e"]);
 $casteller_id = intval($_GET["c"]);
 $estat=0;
 $allowed = true;
+$data="";
 
 include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
 //sleep(5);
@@ -13,6 +14,8 @@ if (isset($_GET["s"]))
 	
 	if ($estat == 1)
 	{
+		$data=" , DATA_VINC=NOW() ";
+		
 		$sql="SELECT E.MAX_PARTICIPANTS,
 			(SELECT SUM(IF(IU.ESTAT>0,1,0)) + SUM(IFNULL(IU.ACOMPANYANTS, 0))
 			FROM INSCRITS IU
@@ -36,17 +39,22 @@ if (isset($_GET["s"]))
 		{
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
-	}	
+	}
+	if ($estat == 0)
+	{
+		$data=" , DATA_NOVINC=NOW() ";
+	}
 	
 	if ($allowed)
 	{	
-		$sql="UPDATE INSCRITS SET ESTAT=".$estat." WHERE CASTELLER_ID=".$casteller_id." AND EVENT_ID = ".$event_id;
+		$sql="UPDATE INSCRITS SET ESTAT=".$estat.$data." WHERE CASTELLER_ID=".$casteller_id." AND EVENT_ID = ".$event_id;
 
 		mysqli_query($conn, $sql);
 
 		if (mysqli_affected_rows($conn) == 0)
 		{
-			$sql="INSERT IGNORE INTO INSCRITS(EVENT_ID,CASTELLER_ID,ESTAT) VALUES (".$event_id.",".$casteller_id.",".$estat.")";
+			$sql="INSERT IGNORE INTO INSCRITS(EVENT_ID,CASTELLER_ID,ESTAT,DATA_NOVINC) 
+					VALUES (".$event_id.",".$casteller_id.",".$estat.", NOW())";
 			if (mysqli_query($conn, $sql)) 
 			{
 			} 
@@ -124,7 +132,7 @@ else if (isset($_GET["a"]))
 
 		if (mysqli_affected_rows($conn) == 0)
 		{
-			$sql="INSERT IGNORE INTO INSCRITS(EVENT_ID,CASTELLER_ID,ESTAT,ACOMPANYANTS) VALUES (".$event_id.",".$casteller_id.",".$estat.",".$acompanyants.")";
+			$sql="INSERT IGNORE INTO INSCRITS(EVENT_ID,CASTELLER_ID,ESTAT,ACOMPANYANTS,DATA_NOVINC) VALUES (".$event_id.",".$casteller_id.",".$estat.",".$acompanyants.",NOW())";
 			if (mysqli_query($conn, $sql)) 
 			{
 			} 
