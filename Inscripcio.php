@@ -98,7 +98,7 @@ background-attachment: fixed;  background-position: center; opacity:0.4'>
 	if($visualitzaFitaAssistenica)
 	{
 		/***+++++++++++ FITES ASSISTENCIA +++++++++++***/
-		echo "<div style='position: absolute; left: 120px; top: 40px;'><a href='Fita_Assistencia.php'>
+		echo "<div style='position: absolute; left: 120px; top: 40px;'><a href='Fita_Assistencia2.php'>
 				<img src='icons/Logo_Colla.gif' width=48 height=48>
 			</a><div class='animate-flicker' id='starA' style='position:absolute; left:30px;top: 2px;'><span class='fa fa-star starRed' style='font-size:20px'></span></div></div>";
 	}
