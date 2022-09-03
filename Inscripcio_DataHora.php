@@ -32,7 +32,8 @@ include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
 	<th class="llistes">Posició</th>
     <th class="llistes">MALNOM</th>	
 	<th class="llistes">Data hora</th>
-	<th class="llistes">Diferència</th>
+	<th class="llistes">Diferència primer</th>
+	<th class="llistes">Diferència anterior</th>
   </tr>
 <?php
 
@@ -41,7 +42,7 @@ FROM CASTELLER AS C
 LEFT JOIN EVENT AS E ON E.EVENT_ID=".$id."
 LEFT JOIN INSCRITS AS I ON C.CASTELLER_ID=I.CASTELLER_ID AND I.EVENT_ID=E.EVENT_ID
 WHERE I.ESTAT > 0
-AND DATA_VINC > DATA_NOVINC
+/*AND DATA_VINC >= DATA_NOVINC*/
 ORDER BY DATA_VINC";
 
 $result = mysqli_query($conn, $sql);
@@ -55,10 +56,13 @@ if (mysqli_num_rows($result) > 0)
 		if ($Posicio > 1)
 		{
 			$dif = date_diff(date_create($row["DATA_VINC"]) , $difAnt)->format('d:%d h:%h m:%i s:%s');
+			$difPrimer = date_diff(date_create($row["DATA_VINC"]) , $dataHoraPrimer)->format('d:%d h:%h m:%i s:%s');
 		}
 		else
 		{
-			$dif="";	
+			$dif="";
+			$difPrimer="";
+			$dataHoraPrimer=date_create($row["DATA_VINC"]);
 		}
 		$colorPosicio = "";
 		
@@ -79,6 +83,7 @@ if (mysqli_num_rows($result) > 0)
 		echo "<td class='llistes' ".$colorPosicio.">".$Posicio."</td>";
 		echo "<td class='llistes' ".$colorPosicio.">".$row["MALNOM"]."</td>";
 		echo "<td class='llistes' ".$colorPosicio.">".$row["DATA_VINC"]."</td>";
+		echo "<td class='llistes' ".$colorPosicio.">".$difPrimer."</td>";
 		echo "<td class='llistes' ".$colorPosicio.">".$dif."</td>";
 		echo "</tr>";
 		

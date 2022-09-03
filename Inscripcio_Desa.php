@@ -53,8 +53,8 @@ if (isset($_GET["s"]))
 
 		if (mysqli_affected_rows($conn) == 0)
 		{
-			$sql="INSERT IGNORE INTO INSCRITS(EVENT_ID,CASTELLER_ID,ESTAT,DATA_NOVINC) 
-					VALUES (".$event_id.",".$casteller_id.",".$estat.", NOW())";
+			$sql="INSERT IGNORE INTO INSCRITS(EVENT_ID,CASTELLER_ID,ESTAT,DATA_NOVINC,DATA_VINC) 
+					VALUES (".$event_id.",".$casteller_id.",".$estat.", NOW(), NOW())";
 			if (mysqli_query($conn, $sql)) 
 			{
 			} 
