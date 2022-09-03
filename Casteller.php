@@ -18,6 +18,7 @@
 			<th>
 				<input type="text" id="edtCerca" style="width:200" class="form_edit" onkeyup="CercaEnter(event)" placeholder="Cerca.." title="Cerca...">			
 				<button class="boto" onClick="Cerca()">Cerca</button>
+				<button class="boto" onClick="CercaTots()">Tots</button>
 			</th>
 			<!--th>
 				<input type="text" id="edtFiltra" style="width:200" class="form_edit" onkeyup="filterTable(this,'castellers')" placeholder="Filtra.." title="Filtr...">
@@ -52,10 +53,10 @@
 		
 		$count=0;
 		
-		$baixa = "";
+		$baixa = " AND C.ESTAT = 1 ";
 		if (!empty($_GET["e"]))
 		{	
-			$baixa=" OR C.ESTAT = 2";
+			$baixa="";
 		}
 		
 		$value = strval($_GET["b"]);
@@ -83,7 +84,7 @@
 		LEFT JOIN CASTELLER AS CR1 ON CR1.CASTELLER_ID=C.FAMILIA_ID
 		LEFT JOIN CASTELLER AS CR2 ON CR2.CASTELLER_ID=C.FAMILIA2_ID
 		WHERE 1=1
-		".$where."
+		".$where.$baixa."
 		ORDER BY C.MALNOM";
 
 		$result = mysqli_query($conn, $sql);
@@ -157,6 +158,14 @@
 		if (input == "")
 			input = "($)($)";
 		window.open("Casteller.php?b=" + input, "_self");
+	}
+	
+	function CercaTots()
+	{
+		input = document.getElementById("edtCerca").value;
+		if (input == "")
+			input = "($)($)";
+		window.open("Casteller.php?e=1&b=" + input, "_self");
 	}
 	
 	function CercaEnter(event)
