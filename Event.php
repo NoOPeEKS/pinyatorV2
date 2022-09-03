@@ -24,7 +24,7 @@
  <table class='llistes'>
   <tr class='llistes'>
     <th class='llistes'>Esdeveniment</th>
-    <th class='llistes'>Dia</th>
+    <th class='llistes' id='dia' onClick='OrdenaDia()'>Dia</th>
 	<?php if (EsEventLv2())echo "<th class='llistes'>Castells</th>"; ?>	
 	<th class='llistes'>Inscrits</th>
 	<th class='llistes'>Comentaris</th>
@@ -36,10 +36,21 @@
 <?php
 
 $estat=1;
+$dia=1;
+$ordenacio=" ORDER BY ORDENACIO, E.EVENT_PARE_ID, E.DATA";
 if (!empty($_GET["e"]))
 {	
 	$estat=intval($_GET["e"]);
 }
+if (!empty($_GET["d"]))
+{	
+	$dia=intval($_GET["d"]);
+}
+if ($dia==-1)
+{
+	$ordenacio=" ORDER BY ORDENACIO DESC, E.EVENT_PARE_ID, E.DATA";
+}
+
 
 include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
 
@@ -60,8 +71,7 @@ FROM EVENT AS E
 LEFT JOIN EVENT AS EP ON EP.EVENT_ID = E.EVENT_PARE_ID
 LEFT JOIN INSCRITS AS I ON I.EVENT_ID = E.EVENT_ID
 WHERE (E.ESTAT = ".$estat." OR E.ESTAT = 0)
-GROUP BY E.EVENT_ID, E.NOM, E.DATA, E.ESTAT, E.EVENT_PARE_ID
-ORDER BY ORDENACIO, E.EVENT_PARE_ID, E.DATA";
+GROUP BY E.EVENT_ID, E.NOM, E.DATA, E.ESTAT, E.EVENT_PARE_ID ".$ordenacio;
 
 $result = mysqli_query($conn, $sql);
 
@@ -158,5 +168,19 @@ mysqli_close($conn);
 	</table> 
 <?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Popup.php";?> 
    </body>
+   <script>
+		var dia;
+		var estat;
+		<?php
+		echo "dia=".$dia.";";
+		echo "estat=".$estat.";";
+		?>
+		
+		function OrdenaDia()
+		{			
+			if (dia == 1) { dia = -1; } else { dia = 1; } 
+			window.location="/pinyator/Event.php?e="+estat+"&d="+dia;
+		}
+   </script>
 </html>
 
