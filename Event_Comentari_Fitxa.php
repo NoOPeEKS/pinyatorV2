@@ -1,4 +1,4 @@
-	<form method="post" action="Event_Comentari_Desa.php">
+	<form method="post" action="./Event_Comentari_Desa.php">
 	<div>
 		<table class="butons">
 			<tr>

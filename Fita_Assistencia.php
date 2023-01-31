@@ -3,7 +3,7 @@
   <title>Pinyator - Fites</title>
   <meta charset="utf-8">
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <style>
 	table
 	{
@@ -45,7 +45,7 @@ $cookie_name = "marrec_inscripcio";
 if (isset($_COOKIE[$cookie_name]))
 {
 
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 	
 	$sql="SELECT HASHTAG, ASSISTENCIA, ASSISTENCIA_ANTERIOR
 	FROM FITA_ASSISTENCIA";

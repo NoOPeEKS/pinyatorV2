@@ -3,7 +3,7 @@
   <title>Pinyator - Fites</title>
   <meta charset="utf-8">
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body style='background-color:#cce6ff;'>
 <div id="site-content" class="site-content">
 	<div class="container">

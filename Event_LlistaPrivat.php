@@ -2,12 +2,12 @@
 <head>
   <title>Pinyator - Inscrits esdeveniment</title>
   <meta charset="utf-8">
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>  
+<?php include "./Head.php";?>
 </head>
 <script src="llibreria/inscripcio.js"></script>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=2; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php"; 
+<?php $menu=2; include "./Menu.php";
 
 $estat = intval($_GET["e"]);
 $id = intval($_GET["id"]);
@@ -35,7 +35,7 @@ $esEditable = 1;
 
 	<br>
 <?php
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Event_Llista.php";
+	include "./Event_Llista.php";
 ?>
    </body>
 </html>

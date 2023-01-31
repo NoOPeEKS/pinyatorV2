@@ -28,7 +28,7 @@ if (!empty($_POST["escontador"]))
 	$contador = intval($_POST["escontador"]);
 }
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $nom = GetStrDB($nom);
 $hashtag = GetStrDB($hashtag);

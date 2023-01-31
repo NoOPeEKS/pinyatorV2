@@ -1,14 +1,14 @@
 <html>
 <head>
 	<title>Pinyator</title>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+	<?php include "./Head.php";?>
 	<script src="llibreria/popup_esborra.js"></script>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body class="popup">
-<?php $menu=6; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";
+<?php $menu=6; include "./Menu.php";
 
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 
 	$id = 0;
 	if (!empty($_GET['id']))
@@ -96,7 +96,7 @@
 	</tr>
 </table>
 <br>
-<form method='post' action='Usuari_Desa.php'>
+<form method='post' action='./Usuari_Desa.php'>
 	<div class="form_group">
 		<label>ID</label>
 		<input type="text" class="form_edit" name="id" value="<?php echo $id ?>" readonly>
@@ -150,7 +150,7 @@
 		<button type="Submit" class="boto">Desa</button>
 	</div>
 	</form>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Popup_Esborrar.php"?>
+	<?php include "./Popup_Esborrar.php"?>
 </body>
 </html>
 

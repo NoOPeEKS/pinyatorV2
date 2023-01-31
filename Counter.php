@@ -1,7 +1,7 @@
 <html>
 <head>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body STYLE="background-color:transparent">
 
 <?php
@@ -10,7 +10,7 @@
 	$hh = intval($_GET["hh"]);
 	if ($id > 0)
 	{
-		include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+		include "./Connexio.php";
 
 		$sql="SELECT SUM(IF(IU.ESTAT > 0, 1, 0)) INSCRIT
 		FROM INSCRITS IU

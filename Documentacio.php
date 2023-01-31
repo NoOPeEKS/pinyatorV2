@@ -2,12 +2,12 @@
 <head>
   <title>Pinyator - Èxits</title>
 <meta charset="utf-8">
-<?php $menu=10; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+<?php $menu=10; include "./Head.php";?>
 <script src="llibreria/popup_esborra.js"></script>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body class="popup">
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php include "./Menu.php";?>
 
 <table class='butons'>
 	<tr class='butons'>
@@ -34,7 +34,7 @@ if (!empty($_GET["e"]))
 	$estat=intval($_GET["e"]);
 }
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $sql="SELECT D.DOCUMENTACIO_ID, D.NOM, date_format(D.DATA, '%d-%m-%Y') AS DATA, 
 D.ESTAT, D.LINK, D.ORDRE, D.GRUP
@@ -93,7 +93,7 @@ mysqli_close($conn);
 ?>	  
 	  
 	</table> 
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Popup_Esborrar.php";?> 
+<?php include "./Popup_Esborrar.php";?>
    </body>
 </html>
 

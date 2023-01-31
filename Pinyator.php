@@ -1,11 +1,11 @@
 <html lang="en">
 <head>
   <title>Pinyator</title>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=0; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php $menu=0; include "./Menu.php";?>
 
 <h1>Pinyator</h1>
 Aquesta web esta dissenyada per portar un control de les pinyes amb la seva assistència.

@@ -1,9 +1,9 @@
 <html>
 <head>
 	<title>Pinyator</title>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+	<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 
 <style>
 /* Style the tab */
@@ -51,9 +51,9 @@
 }
 </style>
 <body>
-<?php $menu=1; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";
+<?php $menu=1; include "./Menu.php";
 
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 
 	$id = 0;
 	if (!empty($_GET['id']))
@@ -131,7 +131,7 @@
 	</div>		
 
 	
-<form method="post" action="Casteller_Desa.php">
+<form method="post" action="./Casteller_Desa.php">
 	<div id="Dades" class="tabcontent" style="display:block">
 		<div class="form_group">
 			<label>ID - </label><?php echo "  <a href='Inscripcio.php?id=".$url."'>Link als seus esdeveniments</a>"?>

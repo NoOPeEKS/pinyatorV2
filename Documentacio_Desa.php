@@ -12,7 +12,7 @@ $grup= strval($_POST["grup"]);
 $ordre = intval($_POST["ordre"]);
 
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $nom = GetStrDB($nom);
 $link = GetStrDB($link);

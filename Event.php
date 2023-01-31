@@ -2,12 +2,12 @@
 <head>
   <title>Pinyator - Esdeveniment</title>
 <meta charset="utf-8">
-<?php $menu=2; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+<?php $menu=2; include "./Head.php";?>
 <script src="llibreria/popup.js"></script>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body class="popup">
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php include "./Menu.php";?>
 
 <table class='butons'>
 	<tr class='butons'>
@@ -52,7 +52,7 @@ if ($dia==-1)
 }
 
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $sql="SELECT E.EVENT_ID, E.NOM, date_format(E.DATA, '%d-%m-%Y %H:%i') AS DATA, 
 E.ESTAT, E.EVENT_PARE_ID, E.ESPLANTILLA,
@@ -166,7 +166,7 @@ mysqli_close($conn);
 ?>	  
 	  
 	</table> 
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Popup.php";?> 
+<?php include "./Popup.php";?>
    </body>
    <script>
 		var dia;
@@ -179,7 +179,7 @@ mysqli_close($conn);
 		function OrdenaDia()
 		{			
 			if (dia == 1) { dia = -1; } else { dia = 1; } 
-			window.location="/pinyator/Event.php?e="+estat+"&d="+dia;
+			window.location="./Event.php?e="+estat+"&d="+dia;
 		}
    </script>
 </html>

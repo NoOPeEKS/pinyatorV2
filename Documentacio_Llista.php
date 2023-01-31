@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body style='background-color:#cce6ff;'>
 <div style='position: fixed; z-index: -1; width: 90%; height: 80%;background-image: url("icons/Logo_Colla.gif");background-repeat: no-repeat; 
 background-attachment: fixed;  background-position: center; opacity:0.4'>
@@ -19,7 +19,7 @@ $grup="";
 $cookie_name = "marrec_inscripcio";
 if (isset($_COOKIE[$cookie_name]))
 {
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 
 	$sql="SELECT D.NOM, D.LINK, D.GRUP
 	FROM DOCUMENTACIO AS D

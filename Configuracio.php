@@ -1,16 +1,16 @@
 <html>
 <head>
 	<title>Pinyator</title>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+	<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <style>
 td {padding:15px}
 </style>
 <body>
-<?php $menu=10; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";
+<?php $menu=10; include "./Menu.php";
 
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 	
 	$temporada = "";
 	$resolucioPantalla = "";
@@ -19,7 +19,7 @@ td {padding:15px}
 	$visualitzarDiferencies = 0;
 	$visualitzarPercentatgeAssistencia = 0;
 				
-	echo "<form method='post' action='Configuracio_Desa.php'>";
+	echo "<form method='post' action='./Configuracio_Desa.php'>";
 
 	$sql="SELECT TEMPORADA, RESOLUCIOPANTALLA, FITES, PARTICIPANTS, DIFERENCIES,
 	PERCENATGEASSISTENCIA

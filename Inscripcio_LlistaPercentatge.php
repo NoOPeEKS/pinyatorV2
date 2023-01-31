@@ -40,7 +40,7 @@ td
 
 </style>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <br>
 <body style='background-color:#cce6ff;'>
 <div style='position: fixed; z-index: -1; width: 90%; height: 80%;background-image: url("icons/Logo_Marrecs.gif");background-repeat: no-repeat; 
@@ -74,7 +74,7 @@ if ((!empty($_GET['id'])) && (isset($_COOKIE[$cookie_name])))
 	
 	$Casteller_uuid = strval($_GET['id']);
 	
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 	
 	$sql="SELECT PERCENATGEASSISTENCIA
 	FROM CONFIGURACIO";

@@ -1,11 +1,11 @@
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
   <title>Pinyator - Fites</title>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=10; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php $menu=10; include "./Menu.php";?>
 <?php
 
 
@@ -24,9 +24,9 @@ $ordre=0;
 
 $autofocus = "autofocus";
 
-echo "<form method='post' action='Documentacio_Desa.php'>";
+echo "<form method='post' action='./Documentacio_Desa.php'>";
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 if ($id > 0)
 {

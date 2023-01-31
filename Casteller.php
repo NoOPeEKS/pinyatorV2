@@ -1,14 +1,14 @@
 <html>
 <head>
 	<title>Pinyator - Castellers</title>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+	<?php include "./Head.php";?>
 	<script src="llibreria/grids.js"></script>
 	
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <script src="llibreria/table2CSV.js"></script>
 <body>
-<?php $menu=1; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php $menu=1; include "./Menu.php";?>
 	<table class="butons">
 		<tr>
 			<th>
@@ -16,7 +16,7 @@
 			</th>
 			<th></th>
 			<th>
-				<input type="text" id="edtCerca" style="width:200" class="form_edit" onkeyup="CercaEnter(event)" placeholder="Cerca.." title="Cerca...">			
+				<input type="text" id="edtCerca" style="width:200px" class="form_edit" onkeyup="CercaEnter(event)" placeholder="Cerca.." title="Cerca...">
 				<button class="boto" onClick="Cerca()">Cerca</button>
 				<button class="boto" onClick="CercaTots()">Tots</button>
 			</th>
@@ -49,7 +49,7 @@
 	}
 	else
 	{
-		include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+		include "./Connexio.php";
 		
 		$count=0;
 		

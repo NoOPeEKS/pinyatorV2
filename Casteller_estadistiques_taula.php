@@ -1,5 +1,5 @@
 <html>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
 <?php
 
@@ -13,7 +13,7 @@ if (!empty($_GET['t']))
 	$temporada = "AND E.TEMPORADA = '".strval($_GET['t'])."'";
 }
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 if (!empty($Casteller_id))
 {

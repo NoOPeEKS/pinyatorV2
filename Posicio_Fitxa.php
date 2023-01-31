@@ -1,13 +1,13 @@
 <html>
 <head>
 	<title>Pinyator</title>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+	<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=7; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";
+<?php $menu=7; include "./Menu.php";
 
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 
 	$id = 0;
 	if (!empty($_GET['id']))
@@ -22,7 +22,7 @@
 	$esfolre = 0;
 	$escanalla = 0;
 	
-	echo "<form method='post' action='Posicio_Desa.php'>";
+	echo "<form method='post' action='./Posicio_Desa.php'>";
 
 	if ($id > 0)
 	{

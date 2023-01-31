@@ -1,11 +1,11 @@
 <html>
 <head>
 	<title>Pinyator - Posicions</title>
-	<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+	<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=7; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php $menu=7; include "./Menu.php";?>
 	<table class="butons">
 	<tr>
 		<th><a href="Posicio_Fitxa.php" class="boto" >Nova posició</a></th>
@@ -22,7 +22,7 @@
 			<th class="llistes">Es Canalla</th>
 		</tr>
 <?php
-	include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+	include "./Connexio.php";
 
 	$sql="SELECT P.NOM, P.POSICIO_ID, 
 	P.ESNUCLI, P.ESCORDO, P.ESTRONC, P.ESFOLRE, P.ESCANALLA

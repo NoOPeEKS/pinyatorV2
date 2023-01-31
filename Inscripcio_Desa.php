@@ -5,7 +5,7 @@ $estat=0;
 $allowed = true;
 $data="";
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 //sleep(5);
 
 if (isset($_GET["s"])) 

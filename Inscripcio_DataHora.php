@@ -2,11 +2,11 @@
 <head>
   <title>Pinyator - Inscrits esdeveniment DataHora</title>
   <meta charset="utf-8">
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>  
+<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=2; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php"; 
+<?php $menu=2; include "./Menu.php";
 
 $estat = intval($_GET["e"]);
 $id = intval($_GET["id"]);
@@ -24,7 +24,7 @@ $nom = "";
 	<br>
 <?php
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 ?>
 <label id="txtErrors"></label>
  <table class="llistes" id="llistaGlobal">

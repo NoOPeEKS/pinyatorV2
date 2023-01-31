@@ -1,11 +1,11 @@
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
   <title>Pinyator - Esdeveniment</title>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Head.php";?>
+<?php include "./Head.php";?>
 </head>
-<?php include "$_SERVER[DOCUMENT_ROOT]/pinyator/Style.php";?>
+<?php include "./Style.php";?>
 <body>
-<?php $menu=2; include "$_SERVER[DOCUMENT_ROOT]/pinyator/Menu.php";?>
+<?php $menu=2; include "./Menu.php";?>
 <?php
 
 $erd="";
@@ -35,9 +35,9 @@ $observacions="";
 
 $autofocus="";
 
-echo "<form method='post' action='Event_Desa.php'>";
+echo "<form method='post' action='./Event_Desa.php'>";
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 if ($id > 0)
 {
@@ -213,7 +213,7 @@ if (!empty($_GET["e"]))
 <br><br>
   <label for="sel1">Selecciona esdeveniment pare:</label>
   <select class="form_edit" name="eventpareid">
-	<option value=0>Sense pare</oprion>
+	<option value=0>Sense pare</option>
 <?php
     $and = "";
 	if($id > 0)

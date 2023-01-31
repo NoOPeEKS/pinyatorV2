@@ -23,7 +23,7 @@ if (!empty($_GET["o"]))
 
 if (!EsEventLv2()) $esEditable=0;
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $sql="SELECT E.NOM, date_format(E.DATA, '%d/%m/%Y %H:%i') AS DATA,
 E.EVENT_PARE_ID

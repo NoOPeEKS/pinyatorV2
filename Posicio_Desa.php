@@ -47,7 +47,7 @@ if(!empty($_POST["colorcamisa"]))
 else
 	$colorcamisa = "#FFFFFF";
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $nom = GetStrDB($nom);
 $colorcamisa = GetStrDB($colorcamisa);

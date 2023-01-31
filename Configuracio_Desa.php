@@ -34,7 +34,7 @@ if (!empty($_POST["assistencia"]))
 }
 
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 
 $sql="UPDATE FITA_ASSISTENCIA SET ASSISTENCIA_ANTERIOR=ASSISTENCIA WHERE ASSISTENCIA!=".$assistencia;

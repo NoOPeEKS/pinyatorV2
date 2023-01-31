@@ -37,13 +37,12 @@ if (!empty($_POST["novell"]))
 if (!empty($_POST["covid"]))
 	$vacunaCOVID=intval($_POST["covid"]);
 
-include "$_SERVER[DOCUMENT_ROOT]/pinyator/Connexio.php";
+include "./Connexio.php";
 
 $malnom = GetStrDB($malnom);
 $nom = GetStrDB($nom);
 $cognom1 = GetStrDB($cognom1);
 $cognom2 = GetStrDB($cognom2);
-
 if ($id > 0)
 {
 	$sql="UPDATE CASTELLER SET MALNOM='".$malnom."',NOM='".$nom."',COGNOM_1='".$cognom1."',COGNOM_2='".$cognom2."'
@@ -55,12 +54,29 @@ if ($id > 0)
 }
 else
 {
-	$sql="INSERT INTO CASTELLER(MALNOM, NOM, COGNOM_1, COGNOM_2, POSICIO_PINYA_ID, POSICIO_TRONC_ID, CODI, FAMILIA_ID, FAMILIA2_ID, ESTAT, ALTURA, ALTURA_TRONCS, LESIONAT, PORTAR_PEU, NOVELL, VACUNA_COVID) 
-	VALUES('".$malnom."','".$nom."','".$cognom1."','".$cognom2."',".$posicioPinya.",".$posicioTronc.", UUID(),".$responsable1.",".$responsable2.",1,".$altura.",".$alturaTroncs.",".$lesionat.",".$portarpeu.",".$novell.",".$vacunaCOVID.")";
-}
 
-if (mysqli_query($conn, $sql)) 
-{	
+    $queryForUUID = "SELECT COUNT(*) as idMax FROM CASTELLER;";
+    $result = mysqli_query($conn, $queryForUUID);
+    if (mysqli_num_rows($result) > 0)
+    {
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $uuid = $row["idMax"];
+        }
+    }
+
+    $uuid = intval($uuid);
+    $uuid++;
+	$sql="INSERT INTO CASTELLER(MALNOM, NOM, COGNOM_1, COGNOM_2, POSICIO_PINYA_ID, POSICIO_TRONC_ID, CODI, FAMILIA_ID, FAMILIA2_ID, ESTAT, ALTURA, ALTURA_TRONCS, LESIONAT, PORTAR_PEU, NOVELL, VACUNA_COVID, Forca) 
+	VALUES('".$malnom."','".$nom."','".$cognom1."','".$cognom2."',".$posicioPinya.",".$posicioTronc.",".$uuid.",".$responsable1.",".$responsable2.",1,".$altura.",".$alturaTroncs.",".$lesionat.",".$portarpeu.",".$novell.",".$vacunaCOVID.", 1)";
+}
+var_dump($sql);
+
+$resultatQuery1 = mysqli_query($conn, $sql);
+
+if ($resultatQuery1)
+{
+
 	if ($accio=="desarievents")	
 	{		
 		$sql="SELECT CASTELLER_ID
@@ -86,10 +102,11 @@ if (mysqli_query($conn, $sql))
 	{
 		echo "<meta http-equiv='refresh' content='0; url=Casteller.php'/>";
 	}
-} 
+}
+
 else if (mysqli_error($conn) != "")
 {
-	echo $id.";".$nom.";".$data;
+	echo $id.";".$nom.";";
 	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
